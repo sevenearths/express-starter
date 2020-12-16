@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    image: node:10
+    environment:
+      PORT: 8080
+      LOCAL_DEV: "true"
+    volumes:
+      - .:/app
+    working_dir: /app/playground
+    #command: node app.js
+    command: npm start
+    #command: "DEBUG=playground:* && npm start"
+    #command: node playground/app.js
+    ports:
+      - 8080:8080

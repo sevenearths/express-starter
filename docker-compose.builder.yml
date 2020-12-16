@@ -1,0 +1,23 @@
+version: '2'
+services:
+  base:
+    image: node:10
+    volumes:
+      - .:/usr/src/service
+    working_dir: /usr/src/service
+  install:
+    extends:
+      service: base
+    command: npm install
+  save-package:
+    extends:
+      service: base
+    command: sh -c "npm install <package-name> && npm update --save"
+  run:
+    extends:
+      service: base
+    command: npm start
+  create-project:
+    extends:
+      service: base
+    command: sh -c "npm install express && npm install -g express-generator && express --view=pug playground"
