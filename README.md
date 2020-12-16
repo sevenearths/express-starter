@@ -6,6 +6,16 @@ I created this repo as a starting point for NodeJS projects going forward. Mainl
 # make install
 ```
 
+### Installing new packages
+
+```
+# vim docker-compose.builder.yml
+...
+  command: sh -c "npm install ... && npm update --save"
+...
+# make save-package
+```
+
 ## Create a Project
 
 ```
